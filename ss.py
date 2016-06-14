@@ -43,7 +43,7 @@ class Book(object):
     #define the class method
     @classmethod
     def create(cls,title):
-        book=cls(title=title)#实例化？
+        book=cls(title=title)#实例化
         return book
     
         
@@ -53,7 +53,44 @@ book2 = Book.create('Django')
 print(book1.title)
 print(book2.title)
 
-    
+##################
+##################
+'''
+继承类中的区别 从下面代码可以看出，如果子类继承父类的方法，子类覆盖了父类的静态方法，
+子类的实例继承了父类的static_method静态方法，调用该方法，还是调用的父类的方法和类属性。
+子类的实例继承了父类的class_method类方法，调用该方法，调用的是子类的方法和子类的类属性。
+'''
+# coding:utf-8
+
+class Foo(object):
+    X = 1
+    Y = 2
+
+    @staticmethod
+    def averag(*args):
+        return sum(args) / len(args)
+
+    @staticmethod
+    def static_method():
+        return Foo.averag(Foo.X, Foo.Y)
+    #可以看出两类方法的区别
+    @classmethod
+    def class_method(cls):
+        return cls.averag(cls.X, cls.Y)
+
+class Son(Foo):
+    X = 3
+    Y = 5
+
+    @staticmethod
+    def averag(*args):
+        return sum(args) / 3
+
+p = Son()
+print(p.static_method())#调用的还是父类的属性和方法
+print(p.class_method())#调用的是子类的属性和方法
+
+
 
 
 
