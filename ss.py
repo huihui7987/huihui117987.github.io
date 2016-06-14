@@ -33,4 +33,53 @@ Foo.class_method()#True
 类方法，第一个参数必须要默认传类，一般习惯用cls。
 '''
 
+# coding:utf-8
+
+class Book(object):
+
+    def __init__(self,title):
+        self.title = title
+
+    #define the class method
+    @classmethod
+    def create(cls,title):
+        book=cls(title=title)#实例化？
+        return book
+    
+        
+
+book1 = Book('Python')
+book2 = Book.create('Django')
+print(book1.title)
+print(book2.title)
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
