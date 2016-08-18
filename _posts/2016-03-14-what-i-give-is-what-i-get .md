@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 写就是写本身的报酬
+title: 写作之旅
 date: 2016-03-15
 categories: blog
 tags: [写作,千字文]
